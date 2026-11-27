@@ -15,6 +15,6 @@ router.put("/update", () => {});
 router.delete("/delete", () => {});
 
 // /login -> 로그인 담당
-router.post("/login", () => {});
+router.post("/login", userController.login);
 
 export default router;

@@ -30,11 +30,21 @@ const createUser = async (data: UserCreateInput) => {
 
     // prisma의 create 명령을 내리면
     // 그에 대한 결과는 "생성된" 데이터베이스 칼럼 정보가 도착됨
-        return prisma.user.create({
-            data,
-        });
+    return prisma.user.create({
+        data,
+    });
+};
+
+const getUserByUsername = async (username: string) => {
+    // 사용하는 측에서 제공한 username을 가지고 User 정보를 검색해서 돌려줘야 함 => SELECT
+    // findUnique : 유일한 칼럼값을 가지고 1개 데이터에 대해 검색을 해올 때 사용할 수 있는 메서드
+    const user = await prisma.user.findUnique({
+        where: { username: username },
+    });
+    return user;
 };
 
 export default {
     createUser,
+    getUserByUsername,
 };
