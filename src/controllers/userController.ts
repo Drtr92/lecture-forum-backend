@@ -90,8 +90,8 @@ const login = async (req: Request, res: Response) => {
             throw new Error("INVALID_CREDENTIALS");
         }
 
-        const isVaild = await passwordUtility.verifyPassword(password, user.password); // 비밀번호 검증해서 맞으면 t, 틀리면 f
-        if (!isVaild) {
+        const isValid = await passwordUtility.verifyPassword(password, user.password); // 비밀번호 검증해서 맞으면 t, 틀리면 f
+        if (!isValid) {
             throw new Error("INVALID_CREDENTIALS");
         }
 
