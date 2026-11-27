@@ -44,7 +44,7 @@ const createUser = async (req:Request, res:Response) => {
         // 4. 회원 가입이 됐다는 내용으로 택배를 보내야 함
         // 여기서부터는 응답(Response) 처리
         // res라는, 앞으로 응답에 나갈 박스에
-        // result 결과를 json으로 가공하여 넣음
+        // result 결과를 json으로 가공하여 넣음.
         res.status(201).json(result);
     } catch (error) {
         console.log(error);
